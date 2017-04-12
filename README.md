@@ -14,7 +14,8 @@
  *
  * @return \Intervention\Image\Image
  */
-\Larakit\Helpers\HelperImage::resizeByWidth($img, $w, $can_upsize);
+$original = Image::make(public_path('original.jpg'));
+\Larakit\Helpers\HelperImage::resizeByWidth($original, 100);
 ~~~
 <img src="https://habrastorage.org/files/186/64c/865/18664c86506e4c299b8ab1090707937b.png"/>
 
@@ -29,7 +30,8 @@
  *
  * @return \Intervention\Image\Image
  */
-\Larakit\Helpers\HelperImage::resizeIgnoringAspectRatio($img, $w, $h);
+$original = Image::make(public_path('original.jpg'));
+\Larakit\Helpers\HelperImage::resizeIgnoringAspectRatio($original, 100, 100);
 ~~~
 <img src="https://habrastorage.org/files/054/e57/3ba/054e573badbd453faa4895915a5dc02b.png"/>
 
@@ -44,7 +46,8 @@
  *
  * @return \Image
  */
-\Larakit\Helpers\HelperImage::resizeImgInBox($img, $w, $h, $can_upsize);
+$original = Image::make(public_path('original.jpg'));
+\Larakit\Helpers\HelperImage::resizeImgInBox($original, 100, 100);
 ~~~
 <img src="https://habrastorage.org/files/8b7/353/705/8b7353705ffc4bf49a81867aa1b27c73.png"/>
 
@@ -61,7 +64,8 @@
  *
  * @return \Image
  */
-\Larakit\Helpers\HelperImage::cropImgInBox($img, $width, $height);
+ $original = Image::make(public_path('original.jpg'));
+\Larakit\Helpers\HelperImage::cropImgInBox($original, 100, 100);
 ~~~
 <img src="https://habrastorage.org/files/c52/cd5/2b7/c52cd52b783c4ee1b895b1252c75615c.png"/>
 
@@ -76,10 +80,13 @@
  * @param \Intervention\Image\Image $img
  * @param                           $width
  * @param                           $height
+ * @param                           $x = null
+ * @param                           $y = null
  *
  * @return \Intervention\Image\Image
  */
-\Larakit\Helpers\HelperImage::cropBoxInImg($img, $width, $height);
+$original = Image::make(public_path('original.jpg'));
+\Larakit\Helpers\HelperImage::cropBoxInImg($original, 100, 100);
 ~~~
 <img src="https://habrastorage.org/files/8b3/164/950/8b31649505ff4ed480d504d8640dd038.png"/>
 
@@ -97,6 +104,7 @@
  *
  * @return \Intervention\Image\Image
  */
-\Larakit\Helpers\HelperImage::resizeBoxInImg($img, $w, $h);
+$original = Image::make(public_path('original.jpg'));
+\Larakit\Helpers\HelperImage::resizeBoxInImg($original, 100, 100);
 ~~~
 <img src="https://habrastorage.org/files/e19/9c8/c03/e199c8c03e524803b15e7f0f0fd7d4b3.png"/>
