@@ -19,10 +19,7 @@
     "autoload": {
         "psr-4": {
             "Larakit\\Helpers\\": "src\\Helpers"
-        },
-        "files": [
-            "src/init.php"
-        ]
+        }
     },
     "minimum-stability": "dev"
 }
