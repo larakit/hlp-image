@@ -1,0 +1,28 @@
+{
+    "name": "larakit/hlp-image",
+    "description": "[Larakit] [helper] file",
+    "keywords": [
+        "laravel 5",
+        "laravel",
+        "larakit"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexey Berdnikov",
+            "email": "aberdnikov@gmail.com"
+        }
+    ],
+    "require": {
+        "intervention/image": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Larakit\\Helpers\\": "src\\Helpers"
+        },
+        "files": [
+            "src/init.php"
+        ]
+    },
+    "minimum-stability": "dev"
+}
