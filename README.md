@@ -16,6 +16,7 @@
  */
 \Larakit\Helpers\HelperImage::resizeByWidth($img, $w, $can_upsize);
 ~~~
+<img src="https://habrastorage.org/files/9ce/196/dcc/9ce196dccd1f4595874eadd5e12db8d3.png"/>
 
 ### 2. Насильно вписываем изображение без учета пропорций в указанные рамки 
 ~~~
@@ -30,6 +31,7 @@
  */
 \Larakit\Helpers\HelperImage::resizeIgnoringAspectRatio($img, $w, $h);
 ~~~
+<img src="https://habrastorage.org/files/c1c/cbb/ea8/c1ccbbea827a40a2b015b405a81a97a8.png"/>
 
 ### 3. Исходная картинка сжимается до тех пор пока не начнет целиком входить в указанные рамки
 ~~~
@@ -44,6 +46,7 @@
  */
 \Larakit\Helpers\HelperImage::resizeImgInBox($img, $w, $h, $can_upsize);
 ~~~
+<img src="https://habrastorage.org/files/a97/67b/944/a9767b94447147e68426d36a5628ff6c.png"/>
 
 ### 4. Уменьшаем размер исходного изображения с сохранением пропорций так, 
 ### чтобы новое получилось вписанным в указанный размер
@@ -60,6 +63,7 @@
  */
 \Larakit\Helpers\HelperImage::cropImgInBox($img, $width, $height);
 ~~~
+<img src="https://habrastorage.org/files/cba/cdc/820/cbacdc8202564aa3ba44ae80f5307a7b.png"/>
 
 ### 5. Уменьшаем размер исходного изображения с сохранением пропорций так,
 ### чтобы новое получилось описанным вокруг указанного размера
@@ -77,7 +81,7 @@
  */
 \Larakit\Helpers\HelperImage::cropBoxInImg($img, $width, $height);
 ~~~
-
+<img src="https://habrastorage.org/files/345/768/fdb/345768fdbffc4b9cba2f459afc981d93.png"/>
 
 ### 6. Указанная рамка должна помещаться внутрь конечного изображения
 ~~~
@@ -95,3 +99,4 @@
  */
 \Larakit\Helpers\HelperImage::resizeBoxInImg($img, $w, $h);
 ~~~
+<img src="https://habrastorage.org/files/f30/dd9/995/f30dd99959d644e79dc7ded77d0d03a2.png"/>
