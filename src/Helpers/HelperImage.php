@@ -2,7 +2,7 @@
 namespace Larakit\Helpers;
 
 class HelperImage {
-
+    
     /**
      * Вписываем изображение в указанную ширину
      * Высота какая получится такая и будет
@@ -17,14 +17,14 @@ class HelperImage {
     static function resizeByWidth(\Intervention\Image\Image $img, $w, $can_upsize = true) {
         return $img->resize(
             $w, null, function ($constraint) use ($can_upsize) {
-                if ($can_upsize) {
-                    $constraint->upsize();
-                }
-                $constraint->aspectRatio();
+            if($can_upsize) {
+                $constraint->upsize();
             }
+            $constraint->aspectRatio();
+        }
         );
     }
-
+    
     /**
      * Насильно вписываем изображение без учета пропорций в указанные рамки
      *
@@ -37,7 +37,7 @@ class HelperImage {
     static function resizeIgnoringAspectRatio(\Intervention\Image\Image $img, $w, $h) {
         return $img->resize($w, $h);
     }
-
+    
     /**
      * Исходная картинка сжимается до тех пор пока не начнет целиком входить
      * в указанные рамки
@@ -46,19 +46,19 @@ class HelperImage {
      * @param int $w
      * @param int $h
      *
-     * @return \Image
+     * @return \Intervention\Image\Image
      */
     static function resizeImgInBox(\Intervention\Image\Image $img, $w, $h, $can_upsize = true) {
         return $img->resize(
             $w, $h, function ($constraint) use ($can_upsize) {
-                if ($can_upsize) {
-                    $constraint->upsize();
-                }
-                $constraint->aspectRatio();
+            if($can_upsize) {
+                $constraint->upsize();
             }
+            $constraint->aspectRatio();
+        }
         );
     }
-
+    
     /**
      * Уменьшаем размер исходного изображения с сохранением пропорций так,
      * чтобы новое получилось вписанным в указанный размер
@@ -67,15 +67,16 @@ class HelperImage {
      * @param type $width
      * @param type $height
      *
-     * @return \Image
+     * @return \Intervention\Image\Image
      */
     static function cropImgInBox(\Intervention\Image\Image $img, $width, $height) {
         //сделаем так, чтобы исходная картинка вписывалась большей стороной в указанный прямоугольник
         $img = self::resizeImgInBox($img, $width, $height);
+        
         return \Image::canvas($width, $height)
-                     ->insert($img, 'center-center');
+            ->insert($img, 'center-center');
     }
-
+    
     /**
      * Уменьшаем размер исходного изображения с сохранением пропорций так,
      * чтобы новое получилось описанным вокруг указанного размера
@@ -84,15 +85,28 @@ class HelperImage {
      * @param \Intervention\Image\Image $img
      * @param                           $width
      * @param                           $height
+     * @param                           $x = null
+     * @param                           $y = null
      *
      * @return \Intervention\Image\Image
      */
-    static function cropBoxInImg(\Intervention\Image\Image $img, $width, $height) {
+    static function cropBoxInImg(\Intervention\Image\Image $img, $width, $height, $x = null, $y = null) {
         //сделаем так, чтобы исходная картинка вписывалась большей стороной в указанный прямоугольник
         $img = self::resizeBoxInImg($img, $width, $height);
-        return $img->crop($width, $height);
+        if(!is_null($y)) {
+            if(($img->getHeight() < $y) || $y < ($img->getHeight() - $y)) {
+                $y = null;
+            }
+        }
+        if(!is_null($x)) {
+            if(($img->getWidth() < $x) || $x < ($img->getWidth() - $x)) {
+                $x = null;
+            }
+        }
+        
+        return $img->crop($width, $height, $x, $y);
     }
-
+    
     /**
      * Указанная рамка должна помещаться внутрь конечного изображения
      * Т.е. если заказываем 100 на 400 а картинка 2000 на 1000
@@ -108,24 +122,25 @@ class HelperImage {
     static function resizeBoxInImg(\Intervention\Image\Image $img, $w, $h) {
         $ratio_image = $img->width() / $img->height();
         $ratio_box   = $w / $h;
-        if ($ratio_box < $ratio_image) {
+        if($ratio_box < $ratio_image) {
             $_h = $h;
             $_w = null;
-        }
-        else {
+        } else {
             $_w = $w;
             $_h = null;
         }
+        
         return $img->resize(
             $_w, $_h, function ($constraint) {
-                $constraint->aspectRatio();
-            }
+            $constraint->aspectRatio();
+        }
         );
     }
-
+    
     static function original(\Intervention\Image\Image $img, $w, $h) {
         $max = max($w, $h);
+        
         return $img->resizeCanvas($max * 2, $max * 2);
     }
-
+    
 }
