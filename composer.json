@@ -1,6 +1,6 @@
 {
     "name": "larakit/hlp-image",
-    "description": "[Larakit] [helper] file",
+    "description": "[Larakit] [helper] image",
     "keywords": [
         "laravel 5",
         "laravel",
@@ -14,16 +14,17 @@
         }
     ],
     "require": {
-        "larakit/lk-boot": "*",
-        "intervention/image": "*"
+        "intervention/image": "*",
+        "ext-gd": "*",
+        "php": ">=5.5"
     },
     "autoload": {
         "psr-4": {
-            "Larakit\\Helpers\\": "src\\Helpers"
-        },
-        "files": [
-            "src/init.php"
-        ]
+            "Larakit\\Helpers\\": "src/",
+            "Larakit\\Tests\\": "tests/"
+        }
     },
-    "minimum-stability": "dev"
+    "require-dev": {
+        "phpunit/phpunit": "^7.0"
+    }
 }
