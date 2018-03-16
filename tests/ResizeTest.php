@@ -3,7 +3,7 @@
 namespace Larakit\Tests;
 
 use Larakit\Helpers\DTO\Size;
-use Larakit\Helpers\ImageManager;
+use Larakit\Helpers\ImageService;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -21,7 +21,7 @@ class ResizeTest extends TestCase
     public function testResizeMaxByWidth()
     {
         $imagePath = __DIR__ . '/data/image.jpg';
-        $creator = new ImageManager();
+        $creator = new ImageService();
         $resource = $creator->createByPath($imagePath);
 
         $resource->resize(new Size(100, 250));
@@ -40,7 +40,7 @@ class ResizeTest extends TestCase
     public function testResizeMaxByHeight()
     {
         $imagePath = __DIR__ . '/data/image.jpg';
-        $creator = new ImageManager();
+        $creator = new ImageService();
         $resource = $creator->createByPath($imagePath);
 
         $resource->resize(new Size(500, 250));
@@ -59,7 +59,7 @@ class ResizeTest extends TestCase
     public function testResizeAndCrop()
     {
         $imagePath = __DIR__ . '/data/image.jpg';
-        $creator = new ImageManager();
+        $creator = new ImageService();
         $resource = $creator->createByPath($imagePath);
 
         // resizing width to 323

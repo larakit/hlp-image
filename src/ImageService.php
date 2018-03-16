@@ -9,7 +9,7 @@ use Larakit\Helpers\Exception\FileNotSupportedException;
  * Class FileCreator
  * @package Larakit\Helpers
  */
-class ImageManager
+class ImageService
 {
     const IMAGE_PNG = 'png';
     const IMAGE_JPEG = 'jpg';
