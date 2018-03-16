@@ -13,6 +13,8 @@ class HelperImage {
      * @param bool                      $can_upsize
      *
      * @return \Intervention\Image\Image
+     *
+     * @deprecated User ImageManager instead
      */
     static function resizeByWidth(\Intervention\Image\Image $img, $w, $can_upsize = true) {
         return $img->resize(
@@ -33,6 +35,8 @@ class HelperImage {
      * @param                           $h
      *
      * @return \Intervention\Image\Image
+     *
+     * @deprecated User ImageManager instead
      */
     static function resizeIgnoringAspectRatio(\Intervention\Image\Image $img, $w, $h) {
         return $img->resize($w, $h);
@@ -47,6 +51,8 @@ class HelperImage {
      * @param int $h
      *
      * @return \Intervention\Image\Image
+     *
+     * @deprecated User ImageManager instead
      */
     static function resizeImgInBox(\Intervention\Image\Image $img, $w, $h, $can_upsize = true) {
         return $img->resize(
@@ -68,6 +74,8 @@ class HelperImage {
      * @param type $height
      *
      * @return \Intervention\Image\Image
+     *
+     * @deprecated User ImageManager instead
      */
     static function cropImgInBox(\Intervention\Image\Image $img, $width, $height) {
         //сделаем так, чтобы исходная картинка вписывалась большей стороной в указанный прямоугольник
@@ -89,6 +97,8 @@ class HelperImage {
      * @param                           $y = null
      *
      * @return \Intervention\Image\Image
+     *
+     * @deprecated User ImageManager instead
      */
     static function cropBoxInImg(\Intervention\Image\Image $img, $width, $height, $x = null, $y = null) {
         //сделаем так, чтобы исходная картинка вписывалась большей стороной в указанный прямоугольник
@@ -118,6 +128,8 @@ class HelperImage {
      * @param                           $h
      *
      * @return \Intervention\Image\Image
+     *
+     * @deprecated User ImageManager instead
      */
     static function resizeBoxInImg(\Intervention\Image\Image $img, $w, $h) {
         $ratio_image = $img->width() / $img->height();

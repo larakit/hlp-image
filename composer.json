@@ -14,11 +14,17 @@
         }
     ],
     "require": {
-        "intervention/image": "*"
+        "intervention/image": "*",
+        "ext-gd": "*",
+        "php": ">=5.5"
     },
     "autoload": {
         "psr-4": {
-            "Larakit\\Helpers\\": "src/"
+            "Larakit\\Helpers\\": "src/",
+            "Larakit\\Tests\\": "tests/"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.0"
     }
 }
